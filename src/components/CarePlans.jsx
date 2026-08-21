@@ -1,23 +1,70 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCurrency } from '../context/CurrencyContext';
 import { carePlansData } from '../data/pricingData';
-import { ShieldCheck, Check, ArrowRight, LifeBuoy } from 'lucide-react';
+import { Check, ArrowRight, ShieldCheck, Info } from 'lucide-react';
 
-export const CarePlans = () => {
-  const { currency } = useCurrency();
+export const CarePlans = ({ showTitle = true }) => {
+  const { currency, toggleCurrency } = useCurrency();
 
   return (
     <section className="section" id="care-plans">
       <div className="container">
-        <header className="section-header">
-          <span className="section-tag" style={{ background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.3)', color: '#34d399' }}>
-            Optional Ongoing Maintenance
+        {showTitle && (
+          <header className="section-header">
+            <span className="section-tag" style={{ background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.3)', color: '#34d399' }}>
+              Optional Ongoing Maintenance
+            </span>
+            <h2 className="section-title">Website Care & Support Plans</h2>
+            <p className="section-subtitle">
+              Never worry about broken links, expired domains, slow speeds, or out-of-date prices. Let us manage your website while you manage your business.
+            </p>
+          </header>
+        )}
+
+        {/* Currency Switcher */}
+        <div className="pricing-header-toggle-wrapper" style={{ marginBottom: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+          <div className="currency-toggle-group" style={{ padding: '4px' }}>
+            <button
+              type="button"
+              className={`currency-btn ${currency === 'USD' ? 'active' : ''}`}
+              onClick={() => toggleCurrency('USD')}
+              style={{ padding: '0.45rem 1.1rem', fontSize: '0.88rem' }}
+            >
+              $ USD
+            </button>
+            <button
+              type="button"
+              className={`currency-btn ${currency === 'NLe' ? 'active' : ''}`}
+              onClick={() => toggleCurrency('NLe')}
+              style={{ padding: '0.45rem 1.1rem', fontSize: '0.88rem' }}
+            >
+              Le NLe (Sierra Leone)
+            </button>
+          </div>
+          <span className="currency-banner-badge" style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+            Showing official rates in {currency === 'USD' ? 'US Dollars ($)' : 'Sierra Leone Leones (NLe)'}
           </span>
-          <h2 className="section-title">Website Care & Support Plans</h2>
-          <p className="section-subtitle">
-            Never worry about broken links, expired domains, slow speeds, or out-of-date prices. Let us manage your website while you manage your business.
+        </div>
+
+        {/* Important Optional Disclaimer Banner */}
+        <div style={{
+          background: 'rgba(59, 130, 246, 0.08)',
+          border: '1px solid rgba(59, 130, 246, 0.2)',
+          borderRadius: 'var(--radius-md)',
+          padding: '1.2rem 1.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.85rem',
+          marginBottom: '3rem',
+          maxWidth: '850px',
+          margin: '0 auto 3rem auto'
+        }}>
+          <Info size={22} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
+          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', margin: 0 }}>
+            <strong style={{ color: '#ffffff' }}>Website Care is 100% optional.</strong> You receive full ownership of your completed website without subscribing to a monthly care plan. Plans are month-to-month and can be paused or cancelled anytime.
           </p>
-        </header>
+        </div>
 
         <div className="care-plans-grid">
           {carePlansData.map((plan) => {
@@ -55,23 +102,24 @@ export const CarePlans = () => {
                   ))}
                 </ul>
 
-                <a 
-                  href={`#contact?care=${plan.id}`} 
+                <Link 
+                  to={`/contact?care=${plan.id}`} 
                   className={`btn ${isPopular ? 'btn-whatsapp' : 'btn-secondary'}`}
                   style={{ width: '100%', marginTop: 'auto' }}
                 >
                   <span>Select {plan.name}</span>
                   <ArrowRight size={16} />
-                </a>
+                </Link>
               </article>
             );
           })}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-            <strong>Flexible Terms: </strong> All website care plans are month-to-month. Cancel or adjust your plan anytime with zero penalties.
-          </p>
+        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <Link to="/contact" className="btn btn-primary btn-lg">
+            <span>Ask Us About Custom Care Options</span>
+            <ArrowRight size={18} />
+          </Link>
         </div>
       </div>
     </section>

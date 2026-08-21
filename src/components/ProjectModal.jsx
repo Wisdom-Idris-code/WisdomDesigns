@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { X, Check, MessageSquare, ArrowRight, ShieldAlert, Sparkles, Smartphone } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { X, Check, MessageSquare, ArrowRight } from 'lucide-react';
 
 export const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
@@ -127,18 +128,18 @@ export const ProjectModal = ({ project, onClose }) => {
               style={{ flex: 1, minWidth: '220px' }}
             >
               <MessageSquare size={18} />
-              <span>Discuss Similar Project on WhatsApp</span>
+              <span>Discuss on WhatsApp</span>
             </a>
 
-            <a 
-              href="#contact" 
+            <Link 
+              to="/contact" 
               onClick={onClose} 
               className="btn btn-primary btn-lg"
               style={{ flex: 1, minWidth: '180px' }}
             >
-              <span>Get a Custom Quote</span>
+              <span>Get a Quote</span>
               <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

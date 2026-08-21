@@ -1,5 +1,6 @@
 import React from 'react';
-import { MessageSquare, Mail, Phone, MapPin, Heart, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MessageSquare, Mail, MapPin, ArrowUp } from 'lucide-react';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -12,7 +13,7 @@ export const Footer = () => {
         <div className="footer-grid">
           {/* Brand & Mission Column */}
           <div className="footer-brand">
-            <a href="#" className="brand-logo-link" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
+            <Link to="/" className="brand-logo-link" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
               <img 
                 src="/WisdomDigital-Logo1.png" 
                 alt="Wisdom Digital Logo" 
@@ -23,48 +24,46 @@ export const Footer = () => {
               <span className="brand-name">
                 Wisdom<span>Digital</span>
               </span>
-            </a>
+            </Link>
             <p>
-              Dedicated freelance web development agency helping small and growing businesses in Sierra Leone and beyond convert visitors into paying clients.
+              Dedicated freelance web development business helping small and growing businesses in Sierra Leone and beyond convert visitors into paying clients.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
               <a 
-                href="https://wa.me/23200000000" 
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp btn-sm"
               >
                 <MessageSquare size={15} />
-                <span>WhatsApp Us</span>
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>
 
-          {/* Quick Navigation Links */}
+          {/* Company Links */}
           <div>
-            <h4 className="footer-heading">Navigation</h4>
+            <h4 className="footer-heading">Company</h4>
             <ul className="footer-links-list">
-              <li><a href="#services" className="footer-link">Our Services</a></li>
-              <li><a href="#portfolio" className="footer-link">Demo Portfolio</a></li>
-              <li><a href="#why-us" className="footer-link">Why Choose Us</a></li>
-              <li><a href="#pricing" className="footer-link">Pricing & Packages</a></li>
-              <li><a href="#care-plans" className="footer-link">Website Care Plans</a></li>
-              <li><a href="#process" className="footer-link">How It Works</a></li>
-              <li><a href="#faq" className="footer-link">FAQs</a></li>
+              <li><Link to="/about" className="footer-link">About Wisdom Digital</Link></li>
+              <li><Link to="/work" className="footer-link">Our Work / Portfolio</Link></li>
+              <li><Link to="/process" className="footer-link">How It Works (Process)</Link></li>
+              <li><Link to="/pricing" className="footer-link">Pricing & Packages</Link></li>
+              <li><Link to="/care" className="footer-link">Website Care Plans</Link></li>
+              <li><Link to="/faq" className="footer-link">Frequently Asked Questions</Link></li>
             </ul>
           </div>
 
-          {/* Core Services */}
+          {/* Services Links */}
           <div>
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-links-list">
-              <li><a href="#services" className="footer-link">Custom Websites</a></li>
-              <li><a href="#services" className="footer-link">WhatsApp Ordering Systems</a></li>
-              <li><a href="#services" className="footer-link">Digital Restaurant Menus</a></li>
-              <li><a href="#services" className="footer-link">Product Catalogs</a></li>
-              <li><a href="#services" className="footer-link">Appointment Booking</a></li>
-              <li><a href="#services" className="footer-link">Local SEO & Google Setup</a></li>
-              <li><a href="#care-plans" className="footer-link">Monthly Maintenance</a></li>
+              <li><Link to="/services" className="footer-link">Starter Website ($200–$300)</Link></li>
+              <li><Link to="/services" className="footer-link">Business Website ($350–$450)</Link></li>
+              <li><Link to="/services" className="footer-link">Premium Website ($500–$700)</Link></li>
+              <li><Link to="/services" className="footer-link">Custom Web Solutions</Link></li>
+              <li><Link to="/services" className="footer-link">WhatsApp Ordering Systems</Link></li>
+              <li><Link to="/services" className="footer-link">Digital Menus & Catalogs</Link></li>
             </ul>
           </div>
 
@@ -74,7 +73,7 @@ export const Footer = () => {
             <ul className="footer-links-list">
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                 <MapPin size={16} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
-                <span>Sierra Leone & Global</span>
+                <span>Sierra Leone & Worldwide</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <MessageSquare size={16} style={{ color: 'var(--whatsapp-green)', flexShrink: 0 }} />
@@ -85,9 +84,9 @@ export const Footer = () => {
                 <a href="mailto:contact@wisdomdigital.dev" style={{ color: 'var(--text-secondary)' }}>contact@wisdomdigital.dev</a>
               </li>
               <li style={{ marginTop: '0.5rem' }}>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  Mon – Sat: 8:00 AM – 7:00 PM GMT
-                </span>
+                <Link to="/contact" className="btn btn-secondary btn-sm" style={{ width: '100%', justifyContent: 'center' }}>
+                  <span>Start a Project →</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -98,7 +97,7 @@ export const Footer = () => {
           <p>© {new Date().getFullYear()} Wisdom Digital. All rights reserved.</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              Crafted with care for growing businesses
+              Built for growing businesses
             </span>
             <button 
               type="button" 

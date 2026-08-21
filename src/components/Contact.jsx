@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useCurrency } from '../context/CurrencyContext';
-import { Send, MessageSquare, Phone, Mail, MapPin, CheckCircle, Clock } from 'lucide-react';
+import { Send, MessageSquare, Phone, Mail, MapPin, CheckCircle, Clock, ShieldCheck } from 'lucide-react';
 
-export const Contact = () => {
-  const { currency } = useCurrency();
+export const Contact = ({ showHeader = true }) => {
+  const [searchParams] = useSearchParams();
+  const planParam = searchParams.get('plan');
+  const careParam = searchParams.get('care');
+
+  const getInitialBudget = () => {
+    if (planParam === 'starter') return 'Starter Website ($200–$300 / NLe 4,560–NLe 6,840)';
+    if (planParam === 'business') return 'Business Website ($350–$450 / NLe 7,980–NLe 10,260)';
+    if (planParam === 'premium') return 'Premium Website ($500–$700 / NLe 11,400–NLe 15,960)';
+    if (planParam === 'custom') return 'Custom Web Solution ($800–$1,000+ / NLe 18,240–NLe 22,800+)';
+    if (careParam) return 'Monthly Website Care Plan';
+    return 'Business Website ($350–$450 / NLe 7,980–NLe 10,260)';
+  };
+
+  const getInitialService = () => {
+    if (careParam) return 'Monthly Website Care Plan';
+    return 'New Custom Website';
+  };
 
   const [formData, setFormData] = useState({
     name: '',
@@ -11,10 +28,25 @@ export const Contact = () => {
     phone: '',
     email: '',
     businessType: 'Restaurant & Takeaway',
-    service: 'New Custom Website',
-    budget: 'Business Tier ($350 – $450 / NLe 7.9k – 10.2k)',
+    service: getInitialService(),
+    budget: getInitialBudget(),
     message: ''
   });
+
+  useEffect(() => {
+    if (planParam) {
+      setFormData(prev => ({
+        ...prev,
+        budget: getInitialBudget()
+      }));
+    } else if (careParam) {
+      setFormData(prev => ({
+        ...prev,
+        service: 'Monthly Website Care Plan',
+        budget: `Care Plan: ${careParam}`
+      }));
+    }
+  }, [planParam, careParam]);
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -46,13 +78,15 @@ export const Contact = () => {
   return (
     <section className="section" id="contact">
       <div className="container">
-        <header className="section-header">
-          <span className="section-tag">Let's Get Started</span>
-          <h2 className="section-title">Start Your Project With Wisdom Digital</h2>
-          <p className="section-subtitle">
-            Tell us about your business and your goals. We'll reply within a few hours with a tailored strategy and transparent quote.
-          </p>
-        </header>
+        {showHeader && (
+          <header className="section-header">
+            <span className="section-tag">Let's Get Started</span>
+            <h2 className="section-title">Let's Talk About Your Business.</h2>
+            <p className="section-subtitle">
+              Tell us about your business and your goals. We'll reply promptly with a tailored strategy and transparent quote.
+            </p>
+          </header>
+        )}
 
         <div className="contact-grid">
           {/* Left Column: Contact Channels & Business Details */}
@@ -60,7 +94,7 @@ export const Contact = () => {
             <div>
               <h3 style={{ fontSize: '1.6rem', marginBottom: '0.75rem' }}>Direct Communication</h3>
               <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                We believe in fast, transparent, and approachable communication. Reach out via WhatsApp, phone, or by filling the project form.
+                We believe in fast, transparent, and approachable communication. Reach out via WhatsApp, phone, email, or by submitting this enquiry form.
               </p>
             </div>
 
@@ -72,7 +106,7 @@ export const Contact = () => {
                 <div className="contact-channel-details">
                   <h4>WhatsApp (Fastest Response)</h4>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>
-                    Direct chat with our team
+                    Direct chat with our development team
                   </p>
                   <a 
                     href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20start%20a%20project." 
@@ -171,7 +205,7 @@ export const Contact = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-row two-col">
                 <div className="form-group">
-                  <label htmlFor="name" className="form-label">Your Full Name *</label>
+                  <label htmlFor="name" className="form-label">Full Name *</label>
                   <input
                     id="name"
                     type="text"
@@ -230,7 +264,7 @@ export const Contact = () => {
 
               <div className="form-row two-col">
                 <div className="form-group">
-                  <label htmlFor="businessType" className="form-label">Business Industry</label>
+                  <label htmlFor="businessType" className="form-label">Business Type / Industry</label>
                   <select
                     id="businessType"
                     name="businessType"
@@ -250,7 +284,7 @@ export const Contact = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="service" className="form-label">Required Service</label>
+                  <label htmlFor="service" className="form-label">Website Package / Service</label>
                   <select
                     id="service"
                     name="service"
@@ -258,11 +292,12 @@ export const Contact = () => {
                     value={formData.service}
                     onChange={handleChange}
                   >
-                    <option value="New Custom Website">New Custom Website</option>
-                    <option value="WhatsApp Ordering / Catalog System">WhatsApp Ordering / Catalog System</option>
-                    <option value="Website Redesign & Modernization">Website Redesign & Modernization</option>
+                    <option value="Starter Website ($200–$300)">Starter Website ($200–$300)</option>
+                    <option value="Business Website ($350–$450)">Business Website ($350–$450)</option>
+                    <option value="Premium Website ($500–$700)">Premium Website ($500–$700)</option>
+                    <option value="Custom Web Solution ($800–$1,000+)">Custom Web Solution ($800–$1,000+)</option>
                     <option value="Monthly Website Care Plan">Monthly Website Care Plan</option>
-                    <option value="Custom Digital Solution">Custom Digital Solution</option>
+                    <option value="Website Redesign & Modernization">Website Redesign & Modernization</option>
                   </select>
                 </div>
               </div>
@@ -288,16 +323,19 @@ export const Contact = () => {
                   <option value="Custom Web Solution ($800–$1,000+ / NLe 18,240–NLe 22,800+)">
                     Custom Web Solution ($800 – $1,000+ / NLe 18,240 – NLe 22,800+)
                   </option>
+                  <option value="Monthly Care Plan ($20–$50/mo)">
+                    Monthly Care Plan ($20 – $50/mo)
+                  </option>
                 </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="message" className="form-label">Tell Us About Your Project & Goals</label>
+                <label htmlFor="message" className="form-label">Project Description & Goals</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
-                  placeholder="Describe what your business does, your target audience, any special features you want (e.g. food menu, WhatsApp ordering, booking form), or links to websites you like."
+                  placeholder="Tell us what your business does, what you want to achieve, any special features you need (e.g., food menu, WhatsApp ordering, booking system), or links to sites you admire."
                   className="form-textarea"
                   value={formData.message}
                   onChange={handleChange}
@@ -307,7 +345,7 @@ export const Contact = () => {
               <div className="form-actions-group">
                 <button type="submit" className="btn btn-primary btn-lg" style={{ flex: 1 }}>
                   <Send size={18} />
-                  <span>Send Project Inquiry</span>
+                  <span>Send Enquiry</span>
                 </button>
 
                 <a
@@ -318,7 +356,7 @@ export const Contact = () => {
                   style={{ flex: 1 }}
                 >
                   <MessageSquare size={18} />
-                  <span>Send via WhatsApp</span>
+                  <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </form>

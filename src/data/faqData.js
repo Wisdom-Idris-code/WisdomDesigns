@@ -1,37 +1,52 @@
 export const faqData = [
   {
     id: 'faq-1',
-    question: 'How long does it take to build and launch my website?',
-    answer: 'Most standard projects (Starter and Business packages) are completed and launched in 5 to 12 business days once we receive your business details, menu or service list, and photos. Custom or larger projects typically take 2 to 4 weeks depending on the complexity.'
+    question: 'How much does a website cost?',
+    answer: 'Our website packages range from $200–$300 (NLe 4,560–6,840) for a Starter Website up to $800–$1,000+ (NLe 18,240–22,800+) for full-scale Custom Web Solutions. Our most popular Business Website package is $350–$450 (NLe 7,980–10,260). Every project includes transparent pricing with no hidden agency fees.'
   },
   {
     id: 'faq-2',
-    question: 'Do I need technical skills or coding knowledge to manage the website?',
-    answer: 'Not at all! We handle all the technical heavy lifting, design, and setup. If you opt for our Website Care plans, simply send us a quick WhatsApp text or email whenever you want to change prices, add a new menu item, or update photos, and we take care of it for you.'
+    question: 'How long does a website take?',
+    answer: 'Standard projects are completed quickly: Starter Websites take 2–3 business days, Business Websites take 5–7 business days, and Premium Websites take 7–12 business days once we receive your business details, menu/catalog, and photos. Custom platforms typically take 2–3 weeks.'
   },
   {
     id: 'faq-3',
-    question: 'How does the WhatsApp ordering and booking system work?',
-    answer: 'When a customer browses your website, selects food items, products, or service appointments, the website automatically builds a neat, structured message with their order details and delivery address. When they tap "Send Order", it opens WhatsApp directly with your business number ready to chat. No complicated logins or third-party merchant fees required.'
+    question: 'Do I need a domain?',
+    answer: 'Yes, every official business website needs a custom domain (such as yourbusiness.com). Domain registration is separate from website development and starts from $15/year (NLe 342/year). If you already own a domain, we connect it to your new website for free.'
   },
   {
     id: 'faq-4',
-    question: 'What if I do not have high-quality photos or written content ready?',
-    answer: 'No problem. We assist you with content structure, guide you on what simple smartphone photos to take, and can source high-quality royalty-free licensed imagery that matches your business theme perfectly.'
+    question: 'Can customers contact my business through WhatsApp?',
+    answer: 'Yes! Direct WhatsApp integration is one of our core specialties. When customers browse your products, food menu, or services, the website automatically creates structured order or booking messages that send directly to your business WhatsApp number in one tap.'
   },
   {
     id: 'faq-5',
-    question: 'Do I own my website and domain name?',
-    answer: 'Yes, 100%. Once final payment is made, you have full ownership of your website design, text, and domain name. We never lock clients into proprietary systems.'
+    question: 'Can you add my products or menu?',
+    answer: 'Absolutely. We format and upload your full food menu, product catalog, or service list complete with high-resolution photos, descriptions, variants (sizes/colors), and transparent pricing so customers can easily browse and order.'
   },
   {
     id: 'faq-6',
-    question: 'What are the payment terms?',
-    answer: 'For project builds, we work on a standard 50% deposit to begin design and development, and the remaining 50% upon your final review and approval right before official public launch. We accept local bank transfers, mobile money / Orange Money / Afrimoney (in Sierra Leone), and international wire/card payments.'
+    question: 'Can customers book appointments?',
+    answer: 'Yes. We build clean, mobile-friendly appointment booking request forms that allow clients to choose their desired services, dates, and times, sending instant structured booking requests directly to your WhatsApp and email.'
   },
   {
     id: 'faq-7',
-    question: 'Why choose Wisdom Digital over a generic free website builder?',
-    answer: 'Free website builders often load slowly on mobile phones, include unwanted ads, lack proper WhatsApp order integration, and require you to spend dozens of frustrating hours trying to design it yourself. Wisdom Digital provides a bespoke, fast-loading, conversion-optimized website built specifically to win local customers.'
+    question: 'Do I have to pay monthly?',
+    answer: 'No. Website development is a one-time investment. Website Care and maintenance plans (from $20/month / NLe 456/month) are completely optional for business owners who want us to manage monthly updates, backups, security, and hosting for them.'
+  },
+  {
+    id: 'faq-8',
+    question: 'What happens after my website is finished?',
+    answer: 'Once your website is reviewed, approved, and launched, you receive 100% full ownership of your domain, code, and graphics. We provide step-by-step guidance on how to receive inquiries and offer ongoing support whenever you need assistance.'
+  },
+  {
+    id: 'faq-9',
+    question: 'Can you update my website after launch?',
+    answer: 'Yes. You can subscribe to one of our flexible monthly Website Care Plans for routine price updates, new menu items, and seasonal promotions, or you can request one-off updates whenever your business needs them.'
+  },
+  {
+    id: 'faq-10',
+    question: 'Do you work with businesses outside Sierra Leone?',
+    answer: 'Yes. While we are proudly rooted in Sierra Leone, we work with clients across West Africa, the African diaspora, Europe, North America, and globally. We accept international payments and communicate seamlessly via WhatsApp, Google Meet, and email.'
   }
 ];

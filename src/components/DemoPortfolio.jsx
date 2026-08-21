@@ -1,47 +1,60 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { portfolioData } from '../data/portfolioData';
 import { ProjectModal } from './ProjectModal';
 import { ExternalLink, ArrowRight, Sparkles } from 'lucide-react';
 
-export const DemoPortfolio = () => {
+export const DemoPortfolio = ({ 
+  limit, 
+  showHeader = true, 
+  showFilter = true,
+  showFooterCta = true,
+  title = "Explore What We Can Build for Your Business",
+  subtitle = "These purpose-built concept demonstrations show how Wisdom Digital creates fast, conversion-focused websites tailored for specific business industries."
+}) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
   const categories = ['All', 'Restaurant', 'Beauty & Wellness', 'Hospitality', 'Retail', 'Professional Services'];
 
-  const filteredProjects = activeCategory === 'All'
+  const filtered = activeCategory === 'All'
     ? portfolioData
     : portfolioData.filter((p) => p.category === activeCategory);
+
+  const displayedProjects = limit ? filtered.slice(0, limit) : filtered;
 
   return (
     <section className="section" id="portfolio" style={{ background: 'rgba(8, 13, 26, 0.7)' }}>
       <div className="container">
-        <header className="section-header">
-          <h2 className="section-title">Explore What We Can Build for Your Business</h2>
-          <p className="section-subtitle">
-            These purpose-built concept demonstrations show how Wisdom Digital creates fast, conversion-focused websites tailored for specific business industries.
-          </p>
-        </header>
+        {showHeader && (
+          <header className="section-header">
+            <span className="section-tag">Portfolio & Demo Concepts</span>
+            <h2 className="section-title">{title}</h2>
+            <p className="section-subtitle">{subtitle}</p>
+          </header>
+        )}
 
         {/* Category Filter Pills */}
-        <div className="portfolio-category-filters" role="tablist" aria-label="Project Categories">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat)}
-              role="tab"
-              aria-selected={activeCategory === cat}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        {showFilter && (
+          <div className="portfolio-category-filters" role="tablist" aria-label="Project Categories">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                className={`filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat)}
+                role="tab"
+                aria-selected={activeCategory === cat}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Projects Grid */}
         <div className="portfolio-grid">
-          {filteredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <article 
               key={project.id} 
               className="project-card"
@@ -63,8 +76,17 @@ export const DemoPortfolio = () => {
                 <p className="project-tagline">{project.tagline}</p>
 
                 <div className="project-card-footer">
-                  <span>View Concept Case Study</span>
-                  <ExternalLink size={16} />
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'var(--accent-light)' }}>
+                    <span>View Concept Case Study</span>
+                    <ExternalLink size={15} />
+                  </span>
+                  <Link 
+                    to={`/work/${project.id}`}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textDecoration: 'underline' }}
+                  >
+                    Full Page
+                  </Link>
                 </div>
               </div>
             </article>
@@ -82,9 +104,19 @@ export const DemoPortfolio = () => {
         }}>
           <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
             <strong style={{ color: 'var(--amber-gold)' }}>Note: </strong> 
-            All showcase projects above are purpose-built concept demonstrations to illustrate features, design quality, and WhatsApp flows. Real client projects are added as we work with businesses.
+            Showcase projects labelled "Concept Project" are purpose-built demonstrations to illustrate features, speed, and WhatsApp order flows. Real client projects are added as we work with businesses.
           </p>
         </div>
+
+        {/* Footer CTA */}
+        {showFooterCta && (
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link to="/work" className="btn btn-secondary btn-lg">
+              <span>Explore All Showcase Projects</span>
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Selected Project Modal */}

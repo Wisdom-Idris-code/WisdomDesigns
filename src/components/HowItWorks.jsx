@@ -1,29 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { processData } from '../data/processData';
-import { MessageCircle, PenTool, Code2, Rocket, ArrowRight } from 'lucide-react';
+import { MessageSquare, Compass, FileText, Code2, CheckSquare, Rocket, ArrowRight } from 'lucide-react';
 
 const iconMap = {
-  MessageCircle: MessageCircle,
-  PenTool: PenTool,
+  MessageSquare: MessageSquare,
+  Compass: Compass,
+  FileText: FileText,
   Code2: Code2,
+  CheckSquare: CheckSquare,
   Rocket: Rocket
 };
 
-export const HowItWorks = () => {
+export const HowItWorks = ({ limit, showHeader = true, showCta = true }) => {
+  const displayedSteps = limit ? processData.slice(0, limit) : processData;
+
   return (
     <section className="section" id="process" style={{ background: 'rgba(8, 13, 26, 0.85)' }}>
       <div className="container">
-        <header className="section-header">
-          <span className="section-tag">Simple & Transparent Process</span>
-          <h2 className="section-title">From Concept to Launch in 4 Clear Steps</h2>
-          <p className="section-subtitle">
-            We make getting your business online fast, friendly, and straightforward without complicated technical hurdles.
-          </p>
-        </header>
+        {showHeader && (
+          <header className="section-header">
+            <span className="section-tag">Simple & Transparent Process</span>
+            <h2 className="section-title">From First Chat to Live Launch</h2>
+            <p className="section-subtitle">
+              We make getting your business online fast, friendly, and straightforward without complicated technical hurdles.
+            </p>
+          </header>
+        )}
 
         <div className="process-grid">
-          {processData.map((item) => {
-            const IconComp = iconMap[item.icon] || MessageCircle;
+          {displayedSteps.map((item) => {
+            const IconComp = iconMap[item.icon] || MessageSquare;
             return (
               <article key={item.step} className="process-step-card">
                 <div className="step-number-badge">{item.step}</div>
@@ -37,12 +44,14 @@ export const HowItWorks = () => {
           })}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
-          <a href="#contact" className="btn btn-primary btn-lg">
-            <span>Schedule Your Free Discovery Chat</span>
-            <ArrowRight size={18} />
-          </a>
-        </div>
+        {showCta && (
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link to="/contact" className="btn btn-primary btn-lg">
+              <span>Ready to Get Started? Start a Project</span>
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

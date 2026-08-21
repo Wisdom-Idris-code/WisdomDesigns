@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { EyeOff, AlertTriangle, UserX, Clock, ArrowRight } from 'lucide-react';
 
 export const BusinessProblems = () => {
@@ -60,10 +61,10 @@ export const BusinessProblems = () => {
               Get a website that works for your business 24 hours a day, 7 days a week.
             </p>
           </div>
-          <a href="#services" className="btn btn-primary">
+          <Link to="/services" className="btn btn-primary">
             <span>See Our Solutions</span>
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

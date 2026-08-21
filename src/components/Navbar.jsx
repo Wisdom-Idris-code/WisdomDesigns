@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useCurrency } from '../context/CurrencyContext';
-import { Menu, X, MessageSquare, ArrowRight } from 'lucide-react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 export const Navbar = () => {
-  const { currency, toggleCurrency } = useCurrency();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +15,29 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const closeMenu = () => setMobileMenuOpen(false);
+
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/services', label: 'Services' },
+    { to: '/work', label: 'Work' },
+    { to: '/pricing', label: 'Pricing' },
+    { to: '/process', label: 'Process' },
+    { to: '/care', label: 'Care Plans' },
+    { to: '/about', label: 'About' },
+    { to: '/faq', label: 'FAQ' },
+  ];
 
   return (
     <header className={`header-nav ${scrolled ? 'scrolled' : ''}`}>
       <nav className="nav-container container" aria-label="Main Navigation">
         {/* Brand Logo */}
-        <a href="#" className="brand-logo-link" onClick={closeMenu}>
+        <Link to="/" className="brand-logo-link" onClick={closeMenu}>
           <img 
             src="/WisdomDigital-Logo1.png" 
             alt="Wisdom Digital Logo" 
@@ -32,58 +48,28 @@ export const Navbar = () => {
           <span className="brand-name">
             Wisdom<span>Digital</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <div className="desktop-nav-menu">
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#portfolio" className="nav-link">Demo Work</a>
-          <a href="#why-us" className="nav-link">Why Us</a>
-          <a href="#pricing" className="nav-link">Pricing</a>
-          <a href="#care-plans" className="nav-link">Care Plans</a>
-          <a href="#process" className="nav-link">How It Works</a>
-          <a href="#faq" className="nav-link">FAQ</a>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </div>
 
-        {/* Nav Actions & Currency Switcher */}
+        {/* Nav Actions */}
         <div className="nav-actions">
-          {/* Currency Toggle */}
-          <div className="currency-toggle-group" role="group" aria-label="Currency Selector">
-            <button 
-              type="button"
-              className={`currency-btn ${currency === 'USD' ? 'active' : ''}`}
-              onClick={() => toggleCurrency('USD')}
-              title="View prices in US Dollars"
-            >
-              $ USD
-            </button>
-            <button 
-              type="button"
-              className={`currency-btn ${currency === 'NLe' ? 'active' : ''}`}
-              onClick={() => toggleCurrency('NLe')}
-              title="View prices in Sierra Leone Leones"
-            >
-              Le NLe
-            </button>
-          </div>
-
-          {/* Quick WhatsApp Action (Desktop) */}
-          <a 
-            href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business." 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn btn-whatsapp btn-sm"
-            style={{ display: 'none' }}
-          >
-            <MessageSquare size={16} />
-            <span>Chat</span>
-          </a>
-
           {/* Primary CTA */}
-          <a href="#contact" className="btn btn-primary btn-sm">
+          <Link to="/contact" className="btn btn-primary btn-sm">
             <span>Start a Project</span>
             <ArrowRight size={16} />
-          </a>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button 
@@ -101,22 +87,25 @@ export const Navbar = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <aside className="mobile-drawer" aria-label="Mobile Navigation Drawer">
-          <a href="#services" className="mobile-nav-link" onClick={closeMenu}>Services</a>
-          <a href="#portfolio" className="mobile-nav-link" onClick={closeMenu}>Demo Work</a>
-          <a href="#why-us" className="mobile-nav-link" onClick={closeMenu}>Why Wisdom Digital</a>
-          <a href="#pricing" className="mobile-nav-link" onClick={closeMenu}>Pricing & Packages</a>
-          <a href="#care-plans" className="mobile-nav-link" onClick={closeMenu}>Website Care Plans</a>
-          <a href="#process" className="mobile-nav-link" onClick={closeMenu}>How It Works</a>
-          <a href="#about" className="mobile-nav-link" onClick={closeMenu}>About Us</a>
-          <a href="#faq" className="mobile-nav-link" onClick={closeMenu}>FAQ</a>
-          <a 
-            href="#contact" 
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) => `mobile-nav-link ${isActive ? 'active' : ''}`}
+              onClick={closeMenu}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+          <Link 
+            to="/contact" 
             className="btn btn-primary btn-lg" 
             onClick={closeMenu}
-            style={{ marginTop: '1rem' }}
+            style={{ marginTop: '0.75rem' }}
           >
-            Start a Project
-          </a>
+            <span>Start a Project</span>
+            <ArrowRight size={18} />
+          </Link>
         </aside>
       )}
     </header>

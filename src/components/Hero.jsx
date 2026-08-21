@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MessageSquare, ArrowRight, Star } from 'lucide-react';
 import heroShowcaseImg from '../assets/hero-showcase.jpg';
 
@@ -13,7 +14,6 @@ export const Hero = () => {
         <div className="hero-grid">
           {/* Left Column: Value Proposition & CTAs */}
           <div className="hero-content">
-
             <h1 className="hero-headline">
               We Build Websites That Turn Visitors Into <span className="highlight">Paying Customers</span>.
             </h1>
@@ -23,14 +23,14 @@ export const Hero = () => {
             </p>
 
             <div className="hero-cta-group">
-              <a href="#contact" className="btn btn-primary btn-lg">
+              <Link to="/contact" className="btn btn-primary btn-lg">
                 <span>Start a Project</span>
                 <ArrowRight size={18} />
-              </a>
+              </Link>
 
-              <a href="#portfolio" className="btn btn-secondary btn-lg">
-                <span>Explore Demo Work</span>
-              </a>
+              <Link to="/work" className="btn btn-secondary btn-lg">
+                <span>Explore Our Work</span>
+              </Link>
             </div>
 
             {/* Social Proof & Trust Metric */}
@@ -94,4 +94,3 @@ export const Hero = () => {
     </section>
   );
 };
-
