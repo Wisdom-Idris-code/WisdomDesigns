@@ -7,7 +7,7 @@ export const ContactPage = () => {
     <>
       <SEO 
         title="Start a Project — Contact Us"
-        description="Let's talk about your business. Get in touch with Wisdom Digital for a free consultation and customized quote for your new website."
+        description="Let's talk about your business. Get in touch with Wisdom Designs for a free consultation and customized quote for your new website."
         canonicalPath="/contact"
       />
 

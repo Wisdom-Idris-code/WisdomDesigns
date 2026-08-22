@@ -9,7 +9,7 @@ export const FAQPage = () => {
     <>
       <SEO 
         title="Frequently Asked Questions (FAQ)"
-        description="Find answers to common questions about working with Wisdom Digital: pricing, timelines, domain ownership, WhatsApp ordering, and website care plans."
+        description="Find answers to common questions about working with Wisdom Designs: pricing, timelines, domain ownership, WhatsApp ordering, and website care plans."
         canonicalPath="/faq"
       />
 
@@ -41,7 +41,7 @@ export const FAQPage = () => {
             </div>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20have%20a%20question%20about%20your%20services." 
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20have%20a%20question%20about%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"

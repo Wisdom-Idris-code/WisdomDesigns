@@ -20,7 +20,7 @@ export const FAQ = ({ limit, showHeader = true, showContactCta = true }) => {
             <span className="section-tag">Got Questions?</span>
             <h2 className="section-title">Frequently Asked Questions</h2>
             <p className="section-subtitle">
-              Everything you need to know about working with Wisdom Digital, our pricing, timelines, domain ownership, and ongoing maintenance.
+              Everything you need to know about working with Wisdom Designs, our pricing, timelines, domain ownership, and ongoing maintenance.
             </p>
           </header>
         )}
@@ -58,7 +58,7 @@ export const FAQ = ({ limit, showHeader = true, showContactCta = true }) => {
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20have%20a%20question%20about%20your%20services." 
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20have%20a%20question%20about%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"
@@ -67,7 +67,7 @@ export const FAQ = ({ limit, showHeader = true, showContactCta = true }) => {
                 <span>Ask Us on WhatsApp</span>
               </a>
               <Link to="/contact" className="btn btn-secondary">
-                <span>Contact Wisdom Digital</span>
+                <span>Contact Wisdom Designs</span>
                 <ArrowRight size={16} />
               </Link>
             </div>

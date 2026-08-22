@@ -30,7 +30,7 @@ export const HomePage = () => {
     <>
       <SEO 
         title="Professional Websites for Growing Businesses"
-        description="Wisdom Digital creates modern, mobile-first websites for small and growing businesses with direct WhatsApp ordering, digital menus, and zero technical hassle."
+        description="Wisdom Designs creates modern, mobile-first websites for small and growing businesses with direct WhatsApp ordering, digital menus, and zero technical hassle."
         canonicalPath="/"
       />
 
@@ -197,7 +197,7 @@ export const HomePage = () => {
                 <ArrowRight size={18} />
               </Link>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business." 
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20discuss%20a%20website%20for%20my%20business." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp btn-lg"

@@ -8,7 +8,7 @@ export const NotFoundPage = () => {
     <>
       <SEO 
         title="Page Not Found (404)"
-        description="The page you are looking for does not exist. Explore Wisdom Digital's website design services, portfolio, and pricing."
+        description="The page you are looking for does not exist. Explore Wisdom Designs' website design services, portfolio, and pricing."
       />
 
       <section className="section" style={{ minHeight: '65vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

@@ -18,7 +18,7 @@ export const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Wisdom Digital! I am interested in building a website similar to your "${project.title}" concept demo for my business.`
+    `Hello Wisdom Designs! I am interested in building a website similar to your "${project.title}" concept demo for my business.`
   );
 
   return (
@@ -65,7 +65,7 @@ export const ProjectModal = ({ project, onClose }) => {
             </div>
 
             <div className="modal-box solution-box">
-              <h4>The Wisdom Digital Solution</h4>
+              <h4>The Wisdom Designs Solution</h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
                 {project.solution}
               </p>

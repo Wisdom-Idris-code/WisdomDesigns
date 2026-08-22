@@ -67,7 +67,7 @@ export const PricingPage = () => {
                 <ArrowRight size={16} />
               </Link>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20discuss%20pricing%20options."
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20discuss%20pricing%20options."
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"

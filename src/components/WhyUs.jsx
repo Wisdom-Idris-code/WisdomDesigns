@@ -39,7 +39,7 @@ export const WhyUs = () => {
     <section className="section" id="why-us">
       <div className="container">
         <header className="section-header">
-          <span className="section-tag">Why Wisdom Digital</span>
+          <span className="section-tag">Why Wisdom Designs</span>
           <h2 className="section-title">A Web Partner Focused on Your Bottom Line</h2>
           <p className="section-subtitle">
             We are dedicated to helping small and growing businesses establish a credible, high-converting digital presence without the high agency price tag.

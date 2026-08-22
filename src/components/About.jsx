@@ -9,14 +9,14 @@ export const About = ({ showCta = true, showHeader = true }) => {
         <div className="about-grid">
           {/* Left Column: Story & Mission */}
           <div className="about-content">
-            {showHeader && <span className="section-tag">About Wisdom Digital</span>}
+            {showHeader && <span className="section-tag">About Wisdom Designs</span>}
             <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>
               Empowering Growing Businesses in the Digital Age
             </h2>
             
             <div className="about-text">
               <p>
-                <strong>Wisdom Digital</strong> is an independent freelance web development and digital solutions studio founded by Wisdom Idris. We help local businesses, restaurants, boutiques, and service enterprises thrive online.
+                <strong>Wisdom Designs</strong> is an independent freelance web development and digital solutions studio founded by Wisdom Idris. We help local businesses, restaurants, boutiques, and service enterprises thrive online.
               </p>
               <p>
                 Too many incredible businesses lose high-value customers simply because they do not have a modern, fast-loading mobile presence. They rely solely on social media posts that vanish after 24 hours or struggle with sending messy PDF menus on WhatsApp.
@@ -47,7 +47,7 @@ export const About = ({ showCta = true, showHeader = true }) => {
             {showCta && (
               <div style={{ marginTop: '2.5rem' }}>
                 <Link to="/contact" className="btn btn-primary">
-                  <span>Work With Wisdom Digital</span>
+                  <span>Work With Wisdom Designs</span>
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -58,11 +58,11 @@ export const About = ({ showCta = true, showHeader = true }) => {
           <div className="about-image-card">
             <img 
               src="/WisdomDigital-Logo1.png" 
-              alt="Wisdom Digital" 
+              alt="Wisdom Designs" 
               className="about-logo-preview"
               style={{ width: '80px', height: '80px', margin: '0 auto 1.25rem auto' }}
             />
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>Wisdom Digital</h3>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>Wisdom Designs</h3>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
               Dedicated freelance web development business.
             </p>

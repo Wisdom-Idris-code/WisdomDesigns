@@ -20,7 +20,7 @@ export const processData = [
   {
     step: '04',
     title: 'We Build Your Website',
-    desc: 'We design and develop a mobile-first, ultra-fast website tailored to your brand, complete with your menu, catalog, and WhatsApp ordering flows.',
+    desc: 'We design and develop a mobile-first, ultra-fast website tailored to your brand, complete with your menu, catalog, and Whatever ordering flows.',
     icon: 'Code2'
   },
   {

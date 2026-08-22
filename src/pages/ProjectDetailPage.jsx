@@ -23,14 +23,14 @@ export const ProjectDetailPage = () => {
   }
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Wisdom Digital! I am interested in building a website similar to your "${project.title}" showcase for my business.`
+    `Hello Wisdom Designs! I am interested in building a website similar to your "${project.title}" showcase for my business.`
   );
 
   return (
     <>
       <SEO 
         title={`${project.title} — Case Study`}
-        description={`Explore the ${project.title} project case study by Wisdom Digital. ${project.problem}`}
+        description={`Explore the ${project.title} project case study by Wisdom Designs. ${project.problem}`}
         canonicalPath={`/work/${project.id}`}
       />
 
@@ -119,7 +119,7 @@ export const ProjectDetailPage = () => {
               </div>
 
               <div className="modal-box solution-box">
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#60a5fa' }}>The Wisdom Digital Solution</h3>
+                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#60a5fa' }}>The Wisdom Designs Solution</h3>
                 <p style={{ fontSize: '0.98rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
                   {project.solution}
                 </p>

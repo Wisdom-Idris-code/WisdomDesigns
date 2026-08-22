@@ -16,13 +16,13 @@ export const Footer = () => {
             <Link to="/" className="brand-logo-link" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
               <img 
                 src="/WisdomDigital-Logo1.png" 
-                alt="Wisdom Digital Logo" 
+                alt="Wisdom Designs Logo" 
                 className="brand-logo-img" 
                 width="38" 
                 height="38" 
               />
               <span className="brand-name">
-                Wisdom<span>Digital</span>
+                Wisdom<span>Designs</span>
               </span>
             </Link>
             <p>
@@ -30,7 +30,7 @@ export const Footer = () => {
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business." 
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp btn-sm"
@@ -45,7 +45,7 @@ export const Footer = () => {
           <div>
             <h4 className="footer-heading">Company</h4>
             <ul className="footer-links-list">
-              <li><Link to="/about" className="footer-link">About Wisdom Digital</Link></li>
+              <li><Link to="/about" className="footer-link">About Wisdom Designs</Link></li>
               <li><Link to="/work" className="footer-link">Our Work / Portfolio</Link></li>
               <li><Link to="/process" className="footer-link">How It Works (Process)</Link></li>
               <li><Link to="/pricing" className="footer-link">Pricing & Packages</Link></li>
@@ -81,7 +81,7 @@ export const Footer = () => {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <Mail size={16} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
-                <a href="mailto:contact@wisdomdigital.dev" style={{ color: 'var(--text-secondary)' }}>contact@wisdomdigital.dev</a>
+                <a href="mailto:contact@wisdomdesigns.dev" style={{ color: 'var(--text-secondary)' }}>contact@wisdomdesigns.dev</a>
               </li>
               <li style={{ marginTop: '0.5rem' }}>
                 <Link to="/contact" className="btn btn-secondary btn-sm" style={{ width: '100%', justifyContent: 'center' }}>
@@ -94,7 +94,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
-          <p>© {new Date().getFullYear()} Wisdom Digital. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Wisdom Designs. All rights reserved.</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
               Built for growing businesses

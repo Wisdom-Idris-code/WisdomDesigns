@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wisdomdigital.dev/sitemap.xml
+Sitemap: https://wisdomdesigns.dev/sitemap.xml

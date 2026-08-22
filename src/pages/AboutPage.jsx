@@ -9,8 +9,8 @@ export const AboutPage = () => {
   return (
     <>
       <SEO 
-        title="About Wisdom Digital"
-        description="Learn about Wisdom Digital — an independent freelance web development business founded by Wisdom Idris, dedicated to helping local and growing businesses succeed online."
+        title="About Wisdom Designs"
+        description="Learn about Wisdom Designs — an independent freelance web development business founded by Wisdom Idris, dedicated to helping local and growing businesses succeed online."
         canonicalPath="/about"
       />
 
@@ -22,7 +22,7 @@ export const AboutPage = () => {
             Your Dedicated <span className="highlight">Freelance Web Partner</span>
           </h1>
           <p className="page-hero-subtitle">
-            Wisdom Digital was founded with a single mission: to help hardworking business owners build a clean, credible, and revenue-generating digital presence.
+            Wisdom Designs was founded with a single mission: to help hardworking business owners build a clean, credible, and revenue-generating digital presence.
           </p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export const AboutPage = () => {
             <span className="section-tag">Founder & Philosophy</span>
             <h2 className="section-title">Built with Craftsmanship & Integrity</h2>
             <p className="section-subtitle">
-              When you work with Wisdom Digital, you work directly with a dedicated developer who cares about your business outcome.
+              When you work with Wisdom Designs, you work directly with a dedicated developer who cares about your business outcome.
             </p>
           </header>
 
@@ -136,7 +136,7 @@ export const AboutPage = () => {
                 <ArrowRight size={18} />
               </Link>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20discuss%20working%20together." 
+                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20discuss%20working%20together." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp btn-lg"

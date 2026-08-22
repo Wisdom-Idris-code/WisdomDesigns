@@ -40,13 +40,13 @@ export const Navbar = () => {
         <Link to="/" className="brand-logo-link" onClick={closeMenu}>
           <img 
             src="/WisdomDigital-Logo1.png" 
-            alt="Wisdom Digital Logo" 
+            alt="Wisdom Designs Logo" 
             className="brand-logo-img" 
             width="42" 
             height="42" 
           />
           <span className="brand-name">
-            Wisdom<span>Digital</span>
+            Wisdom<span>Designs</span>
           </span>
         </Link>
 

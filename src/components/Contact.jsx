@@ -57,7 +57,7 @@ export const Contact = ({ showHeader = true }) => {
 
   const generateWhatsAppUrl = () => {
     const text = 
-      `*New Project Inquiry for Wisdom Digital*\n\n` +
+      `*New Project Inquiry for Wisdom Designs*\n\n` +
       `👤 *Name:* ${formData.name || 'Not provided'}\n` +
       `🏢 *Business Name:* ${formData.businessName || 'Not provided'}\n` +
       `📱 *Phone/WhatsApp:* ${formData.phone || 'Not provided'}\n` +
@@ -109,7 +109,7 @@ export const Contact = ({ showHeader = true }) => {
                     Direct chat with our development team
                   </p>
                   <a 
-                    href="https://wa.me/23200000000?text=Hello%20Wisdom%20Digital,%20I%20would%20like%20to%20start%20a%20project." 
+                    href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20start%20a%20project." 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     style={{ color: 'var(--whatsapp-green)', fontWeight: '600', fontSize: '0.95rem' }}
@@ -129,10 +129,10 @@ export const Contact = ({ showHeader = true }) => {
                     For proposals and formal briefs
                   </p>
                   <a 
-                    href="mailto:contact@wisdomdigital.dev" 
+                    href="mailto:contact@wisdomdesigns.dev" 
                     style={{ color: 'var(--accent-light)', fontWeight: '600', fontSize: '0.95rem' }}
                   >
-                    contact@wisdomdigital.dev
+                    contact@wisdomdesigns.dev
                   </a>
                 </div>
               </div>
