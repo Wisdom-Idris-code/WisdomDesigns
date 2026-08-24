@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, HeartHandshake, Target, ArrowRight } from 'lucide-react';
+import { ShieldCheck, HeartHandshake, Target, ArrowRight, Code2, Zap, Globe } from 'lucide-react';
 
 export const About = ({ showCta = true, showHeader = true }) => {
   return (
@@ -54,41 +54,59 @@ export const About = ({ showCta = true, showHeader = true }) => {
             )}
           </div>
 
-          {/* Right Column: Brand Card & Values */}
-          <div className="about-image-card">
-            <img 
-              src="/WisdomDigital-Logo1.png" 
-              alt="Wisdom Designs" 
-              className="about-logo-preview"
-              style={{ width: '80px', height: '80px', margin: '0 auto 1.25rem auto' }}
-            />
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>Wisdom Designs</h3>
-            <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-              Dedicated freelance web development business.
-            </p>
+          {/* Right Column: Founder Profile Card */}
+          <div className="about-founder-card">
+            {/* Glow ring + photo */}
+            <div className="founder-photo-wrap">
+              <div className="founder-photo-ring" />
+              <img
+                src="/profile.jpg"
+                alt="Wisdom Idris — Founder & Lead Developer"
+                className="founder-photo"
+              />
+              {/* Online badge */}
+              <span className="founder-badge">
+                <span className="founder-badge-dot" />
+                Available for Projects
+              </span>
+            </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', borderTop: '1px solid var(--border-subtle)', paddingTop: '1.25rem', textAlign: 'center' }}>
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.4rem', color: 'var(--accent-light)' }}>100%</strong>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Mobile Optimized</span>
+            {/* Name & title */}
+            <div className="founder-identity">
+              <h3 className="founder-name">Wisdom Idris</h3>
+              <p className="founder-role">Founder &amp; Lead Developer</p>
+            </div>
+
+            {/* Skill chips */}
+            <div className="founder-skills">
+              <span className="skill-chip"><Code2 size={13} /> Full-Stack Dev</span>
+              <span className="skill-chip"><Zap size={13} /> Performance</span>
+              <span className="skill-chip"><Globe size={13} /> Web Strategy</span>
+            </div>
+
+            {/* Stats bar */}
+            <div className="founder-stats">
+              <div className="founder-stat">
+                <strong>100%</strong>
+                <span>Mobile Optimized</span>
               </div>
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.4rem', color: 'var(--whatsapp-green)' }}>1-Tap</strong>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>WhatsApp Orders</span>
+              <div className="founder-stat-divider" />
+              <div className="founder-stat">
+                <strong style={{ color: 'var(--whatsapp-green)' }}>1-Tap</strong>
+                <span>WhatsApp Orders</span>
               </div>
-              <div>
-                <strong style={{ display: 'block', fontSize: '1.4rem', color: 'var(--amber-gold)' }}>0%</strong>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Hidden Fees</span>
+              <div className="founder-stat-divider" />
+              <div className="founder-stat">
+                <strong style={{ color: 'var(--amber-gold)' }}>0%</strong>
+                <span>Hidden Fees</span>
               </div>
             </div>
 
-            <div style={{ marginTop: '1.75rem', background: 'rgba(255, 255, 255, 0.02)', padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)', textAlign: 'left' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
-                <ShieldCheck size={18} style={{ color: 'var(--accent-light)' }} />
-                <strong style={{ fontSize: '0.88rem', color: 'var(--text-primary)' }}>Founder & Lead Developer</strong>
-              </div>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', margin: 0 }}>
-                Led by Wisdom Idris, working directly with each client from strategy to launch.
+            {/* Trust badge */}
+            <div className="founder-trust">
+              <ShieldCheck size={17} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
+              <p>
+                Every project is handled personally — from strategy and design to launch and handover.
               </p>
             </div>
           </div>

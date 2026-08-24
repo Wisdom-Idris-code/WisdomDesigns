@@ -1,30 +1,41 @@
-# Hero Section High-End Visual Prompt for Wisdom Digital
+Create a high-end photorealistic commercial website mockup for Wisdom Digital's hero section.
 
-## Concept & Visual Direction
-A high-end, premium 3D isometric and photorealistic mockup showcasing modern digital web solutions crafted for growing businesses (restaurants, salons, boutiques, and hotels). The composition highlights sleek, borderless modern smartphones and floating glass UI cards displaying live business websites with WhatsApp ordering integration, vibrant photography, and verified business badges.
+Show a premium modern laptop and contemporary smartphone together on a sophisticated dark desk, photographed from a slightly elevated three-quarter angle. Both devices should clearly display the same professionally designed business website, demonstrating excellent responsive design and screen-size optimization.
 
-## Color Palette & Ambiance
-- **Background**: Deep midnight navy blue (`#0a0f1d` to `#0d172e`) with soft radial ambient glows of royal electric blue (`#3b82f6`) and vivid emerald green (`#10b981`).
-- **Accents**: Subtle gold stars for ratings, crisp white typography, and vibrant emerald WhatsApp badges.
-- **Lighting**: Studio rim lighting, soft reflections on frosted glass, realistic device shadows, and clean cyber-minimalist luxury aesthetic.
+The website shown on the devices must NOT be a Wisdom Digital website. Instead, create a visually rich, cohesive restaurant website that represents the type of real-world business website Wisdom Digital builds for clients.
 
-## Key Visual Elements
-1. **Central Modern Smartphone (iPhone/Flagship style)**:
-   - Displaying an ultra-modern, clean restaurant digital menu page ("Chicken Town" gourmet food showcase) with high-res food imagery, item pricing, and a glowing green "Order via WhatsApp" floating action button.
-2. **Angled Companion Screen / Tablet / Floating Card**:
-   - Showcasing a chic beauty salon and boutique booking interface with real-time slot selection and modern minimal UI.
-3. **Trust & Conversion Micro-Cards**:
-   - Frosted glassmorphic badges floating subtly around the devices:
-     - ⭐️ 5.0 Star Rating & "Trusted by Growing Businesses" badge with miniature customer profile avatars.
-     - 💬 Floating WhatsApp message bubble: *"New Order Received: Table 4 / Delivery"* with instant notification dot.
-     - ⚡ "Mobile-First & Ultra Fast" performance badge.
-4. **Style / Aesthetics**:
-   - Hyper-detailed 3D render, Octane Render style, Unreal Engine 5 aesthetic, 8k resolution, soft glassmorphism, clean corporate luxury, zero code terminals or hacker clichés.
+The restaurant website should feel authentic, premium and engaging, with:
 
----
+Elegant restaurant branding
+Beautiful hero photography of appetizing food
+Restaurant name and short tagline
+Clear navigation
+Prominent View Menu CTA
+Order on WhatsApp CTA
+Featured dishes
+Short restaurant introduction
+Location/contact information
+Clean food imagery
+Professional typography
+Warm, sophisticated restaurant aesthetic
 
-## Midjourney / DALL-E / Imagen Generation Prompt:
+The laptop should display the spacious desktop version of the restaurant website, with a large cinematic food hero image, elegant navigation, prominent calls-to-action and beautifully arranged content.
 
-```text
-High-end 3D isometric studio render of premium modern smartphones and floating frosted-glass UI interfaces for a modern web design agency. The screens display sleek, vibrant mobile websites for local businesses: a gourmet restaurant digital menu with WhatsApp ordering button, and a luxury salon booking interface. Floating ambient glassmorphic badges featuring 5-star customer ratings, verified green checkmarks, and WhatsApp order notification bubble. Deep dark navy background with subtle royal blue and emerald green radial glow, soft studio reflections, clean premium aesthetic, photorealistic, 8k resolution, cinematic lighting, sleek finish, no developer code or terminal text.
-```
+The smartphone should display the exact same restaurant website intelligently adapted to mobile: collapsed navigation, vertically stacked content, resized typography, properly cropped imagery, comfortable spacing and large touch-friendly buttons.
+
+Make it immediately obvious that one professionally designed website works beautifully across different screen sizes.
+
+The restaurant website should have its own independent visual identity—do not use the Wisdom Digital logo, Wisdom Digital name, or Wisdom Digital branding inside the restaurant website.
+
+Wisdom Digital's branding should appear only subtly outside the website mockup if necessary, such as a small tasteful presentation label or brand mark in the surrounding composition.
+
+Visual direction: luxury commercial product photography, premium creative-agency presentation, realistic laptop and smartphone materials, physically accurate reflections, realistic screen glow, cinematic studio lighting, soft shadows, shallow depth of field, sophisticated dark environment, extremely sharp screens, polished advertising photography.
+
+Composition: laptop is the dominant object, smartphone positioned naturally beside or slightly in front of it. Both screens must face the viewer sufficiently to clearly see the responsive website. Leave clean negative space around the devices for hero-section composition.
+
+Overall impression:
+"This is the quality of website Wisdom Digital can build for your business."
+
+Avoid: Wisdom Digital website screens, coding interfaces, code snippets, developer clichés, generic SaaS dashboards, excessive neon, holograms, unrealistic devices, distorted screens, cluttered layouts, excessive text, generic stock photography and overly futuristic aesthetics.
+
+Aspect ratio: 16:9, optimized for a premium website hero section.
