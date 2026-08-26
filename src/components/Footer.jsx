@@ -30,7 +30,7 @@ export const Footer = () => {
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business." 
+                href="https://wa.me/23272116425?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20inquire%20about%20a%20website%20for%20my%20business." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp btn-sm"
@@ -77,7 +77,7 @@ export const Footer = () => {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <MessageSquare size={16} style={{ color: 'var(--whatsapp-green)', flexShrink: 0 }} />
-                <a href="https://wa.me/23200000000" style={{ color: 'var(--text-secondary)' }}>+232 (00) 000-000</a>
+                <a href="https://wa.me/23272116425" style={{ color: 'var(--text-secondary)' }}>+232 72 116 425</a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <Mail size={16} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
