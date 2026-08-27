@@ -81,7 +81,7 @@ export const Footer = () => {
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <Mail size={16} style={{ color: 'var(--accent-light)', flexShrink: 0 }} />
-                <a href="mailto:contact@wisdomdesigns.dev" style={{ color: 'var(--text-secondary)' }}>contact@wisdomdesigns.dev</a>
+                <a href="mailto:wisdomdesigns4@gmail.com" style={{ color: 'var(--text-secondary)' }}>wisdomdesigns4@gmail.com</a>
               </li>
               <li style={{ marginTop: '0.5rem' }}>
                 <Link to="/contact" className="btn btn-secondary btn-sm" style={{ width: '100%', justifyContent: 'center' }}>

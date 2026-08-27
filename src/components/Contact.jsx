@@ -209,10 +209,10 @@ export const Contact = ({ showHeader = true }) => {
                     For proposals and formal briefs
                   </p>
                   <a 
-                    href="mailto:contact@wisdomdesigns.dev" 
+                    href="mailto:wisdomdesigns4@gmail.com" 
                     style={{ color: 'var(--accent-light)', fontWeight: '600', fontSize: '0.95rem' }}
                   >
-                    contact@wisdomdesigns.com
+                    wisdomdesigns4@gmail.com
                   </a>
                 </div>
               </div>
