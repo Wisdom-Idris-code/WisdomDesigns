@@ -7,7 +7,7 @@ export const projectPricingData = [
     tagline: 'Perfect for small local businesses, personal brands, or shops needing a fast, polished web presence.',
     priceUSD: '$200 – $300',
     priceNLe: 'NLe 4,560 – NLe 6,840',
-    timeline: '2–3 Business Days',
+    timeline: '1–2 Business Days',
     features: [
       '1 to 3 Modern, high-converting pages',
       '100% Mobile-responsive layout',
@@ -28,7 +28,7 @@ export const projectPricingData = [
     tagline: 'Our flagship package for growing businesses wanting to showcase menus/products and capture leads.',
     priceUSD: '$350 – $450',
     priceNLe: 'NLe 7,980 – NLe 10,260',
-    timeline: '5–7 Business Days',
+    timeline: '2–3 Business Days',
     features: [
       '4 to 7 Custom designed pages',
       'Digital Menu or Product Catalog Showcase',
@@ -50,7 +50,7 @@ export const projectPricingData = [
     tagline: 'Comprehensive digital experience with advanced interactive catalogs, custom branding, and speed tuning.',
     priceUSD: '$500 – $700',
     priceNLe: 'NLe 11,400 – NLe 15,960',
-    timeline: '7–12 Business Days',
+    timeline: '5–7 Business Days',
     features: [
       '8 to 12 Bespoke pages & custom sections',
       'Multi-category searchable product/service catalog',
@@ -72,7 +72,7 @@ export const projectPricingData = [
     tagline: 'Full-scale custom digital solutions built specifically around your complex business operations.',
     priceUSD: '$800 – $1,000+',
     priceNLe: 'NLe 18,240 – NLe 22,800+',
-    timeline: '2–3 Weeks',
+    timeline: '1–2 Weeks',
     features: [
       'Custom architecture tailored to your business workflow',
       'Multi-branch or multi-vendor catalog structures',
