@@ -9,9 +9,11 @@ import {
   MessageSquare, 
   Sparkles, 
   ExternalLink, 
-  Clock, 
-  Zap, 
-  Smartphone 
+  ShieldCheck, 
+  Smartphone,
+  Globe,
+  Layers,
+  Info
 } from 'lucide-react';
 
 export const ProjectDetailPage = () => {
@@ -22,15 +24,19 @@ export const ProjectDetailPage = () => {
     return <Navigate to="/work" replace />;
   }
 
+  const isCompleted = project.status === 'completed';
+
   const whatsappMessage = encodeURIComponent(
-    `Hello Wisdom Designs! I am interested in building a website similar to your "${project.title}" showcase for my business.`
+    isCompleted
+      ? `Hello Wisdom Designs! I saw your completed project for "${project.name}" and would like to discuss building a website for my business.`
+      : `Hello Wisdom Designs! I am interested in building a website similar to your "${project.name}" concept demonstration for my business.`
   );
 
   return (
     <>
       <SEO 
-        title={`${project.title} — Case Study`}
-        description={`Explore the ${project.title} project case study by Wisdom Designs. ${project.problem}`}
+        title={`${project.title} — ${isCompleted ? 'Case Study' : 'Concept Project'}`}
+        description={`${project.tagline}. ${project.problem}`}
         canonicalPath={`/work/${project.id}`}
       />
 
@@ -49,19 +55,47 @@ export const ProjectDetailPage = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
-            <span className="project-label-badge" style={{ position: 'static' }}>{project.label}</span>
+            <span className={`project-label-badge ${project.status}`} style={{ position: 'static' }}>
+              {project.label}
+            </span>
             <span className="project-category-tag" style={{ position: 'static' }}>{project.category}</span>
             <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Industry: {project.businessType}
+              Category: {project.businessType}
             </span>
           </div>
 
           <h1 className="page-hero-title" style={{ textAlign: 'left', marginBottom: '1rem' }}>
             {project.title}
           </h1>
-          <p className="page-hero-subtitle" style={{ textAlign: 'left', margin: '0 0 2rem 0', maxWidth: '850px' }}>
+          <p className="page-hero-subtitle" style={{ textAlign: 'left', margin: '0 0 1.75rem 0', maxWidth: '850px' }}>
             {project.tagline}
           </p>
+
+          {/* Quick Actions (Live Website button for Completed Project) */}
+          {isCompleted && project.liveUrl && (
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <span>View Live Website</span>
+                <ExternalLink size={16} />
+              </a>
+              <a 
+                href={`https://wa.me/23272116425?text=${whatsappMessage}`}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-whatsapp"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <MessageSquare size={16} />
+                <span>Discuss Similar Project</span>
+              </a>
+            </div>
+          )}
 
           {/* Project Highlights Bar */}
           {project.demoHighlights && (
@@ -77,10 +111,10 @@ export const ProjectDetailPage = () => {
             }}>
               {project.demoHighlights.map((h, i) => (
                 <div key={i}>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase' }}>
+                  <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                     {h.label}
                   </span>
-                  <strong style={{ fontSize: '1.2rem', color: 'var(--accent-light)' }}>
+                  <strong style={{ fontSize: '1.2rem', color: isCompleted ? '#34d399' : 'var(--accent-light)' }}>
                     {h.value}
                   </strong>
                 </div>
@@ -91,10 +125,33 @@ export const ProjectDetailPage = () => {
       </section>
 
       {/* Main Case Study Content */}
-      <section className="section" style={{ paddingTop: '1.5rem' }}>
+      <section className="section" style={{ paddingTop: '1rem' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2.5rem' }}>
             
+            {/* Concept Project Clear Disclosure Banner (Only for concept projects) */}
+            {!isCompleted && (
+              <div style={{
+                background: 'rgba(245, 158, 11, 0.08)',
+                border: '1px solid rgba(245, 158, 11, 0.3)',
+                borderRadius: 'var(--radius-md)',
+                padding: '1.5rem',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '1rem'
+              }}>
+                <Info size={24} style={{ color: 'var(--amber-gold)', flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <h3 style={{ fontSize: '1.05rem', color: '#ffffff', marginBottom: '0.35rem', fontWeight: '700' }}>
+                    Concept Project Showcase
+                  </h3>
+                  <p style={{ fontSize: '0.92rem', color: '#fef3c7', lineHeight: '1.6', margin: 0 }}>
+                    {project.conceptDisclaimer || `Concept website created to demonstrate a modern digital experience for a ${project.businessType} business.`} This demonstration illustrates how Wisdom Designs designs intuitive user experiences, fast mobile performance, and automated WhatsApp workflows for growing businesses.
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Visual Hero Image Card */}
             <div style={{
               borderRadius: 'var(--radius-lg)',
@@ -109,26 +166,49 @@ export const ProjectDetailPage = () => {
               />
             </div>
 
+            {/* Project Overview */}
+            {project.overview && (
+              <div style={{
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-card)',
+                borderRadius: 'var(--radius-md)',
+                padding: '2rem'
+              }}>
+                <h3 style={{ fontSize: '1.35rem', marginBottom: '0.75rem', color: '#ffffff' }}>
+                  {isCompleted ? 'Project Overview' : 'Concept Demonstration Overview'}
+                </h3>
+                <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.7', margin: 0 }}>
+                  {project.overview}
+                </p>
+              </div>
+            )}
+
             {/* Business Problem & Solution */}
             <div className="modal-section-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
               <div className="modal-box problem-box">
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#f87171' }}>The Business Problem</h3>
+                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#f87171' }}>
+                  {isCompleted ? 'The Business Problem' : 'Business Challenge / Opportunity'}
+                </h3>
                 <p style={{ fontSize: '0.98rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
                   {project.problem}
                 </p>
               </div>
 
               <div className="modal-box solution-box">
-                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#60a5fa' }}>The Wisdom Designs Solution</h3>
+                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#60a5fa' }}>
+                  {isCompleted ? 'The Wisdom Designs Solution' : 'Proposed Website Solution'}
+                </h3>
                 <p style={{ fontSize: '0.98rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
                   {project.solution}
                 </p>
               </div>
             </div>
 
-            {/* Outcome & Customer Benefit */}
+            {/* Outcome & Customer Benefit / User Experience */}
             <div className="modal-box benefit-box">
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#34d399' }}>Business Outcome & Value Delivered</h3>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: '#34d399' }}>
+                {isCompleted ? 'Business Outcome & Impact' : 'User Experience & Expected Value'}
+              </h3>
               <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.65' }}>
                 {project.customerBenefit}
               </p>
@@ -157,10 +237,10 @@ export const ProjectDetailPage = () => {
               <div className="interactive-preview-demo" style={{ padding: '2rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <span style={{ fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', color: 'var(--accent-light)', letterSpacing: '0.05em' }}>
-                    Live Menu / Product Catalog Sample
+                    {project.interactivePreview.title || 'Interactive Catalog Sample'}
                   </span>
                   <span style={{ fontSize: '0.85rem', color: 'var(--whatsapp-green)', fontWeight: '600' }}>
-                    ● Direct WhatsApp Checkout Ready
+                    ● 1-Click WhatsApp Ready
                   </span>
                 </div>
 
@@ -178,34 +258,68 @@ export const ProjectDetailPage = () => {
               </div>
             )}
 
+            {/* For Chicken Town: Live Website Callout */}
+            {isCompleted && project.liveUrl && (
+              <div style={{
+                background: 'rgba(16, 185, 129, 0.08)',
+                border: '1px solid rgba(16, 185, 129, 0.3)',
+                borderRadius: 'var(--radius-md)',
+                padding: '2rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '1.25rem'
+              }}>
+                <div>
+                  <h3 style={{ fontSize: '1.3rem', color: '#ffffff', marginBottom: '0.35rem' }}>
+                    Experience the Live Website
+                  </h3>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', margin: 0 }}>
+                    See the interactive menu, category filters, and live WhatsApp ordering in action on the deployed site.
+                  </p>
+                </div>
+                <a 
+                  href={project.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-whatsapp btn-lg"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+                >
+                  <span>View Live Website</span>
+                  <ExternalLink size={18} />
+                </a>
+              </div>
+            )}
+
             {/* Call to Action Bar */}
             <div style={{
               background: 'radial-gradient(ellipse at center, rgba(37, 99, 235, 0.12) 0%, rgba(15, 23, 42, 0.9) 100%)',
               border: '1px solid var(--border-card)',
               borderRadius: 'var(--radius-lg)',
-              padding: '2.5rem 2rem',
+              padding: '2.75rem 2rem',
               textAlign: 'center'
             }}>
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>
-                Want a Website Like This for Your Business?
+                {isCompleted ? 'Want a High-Converting Website for Your Business?' : 'Want Something Similar for Your Business?'}
               </h3>
-              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem auto' }}>
-                We can customize this design and functionality to fit your exact products, branding, and WhatsApp workflow.
+              <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem auto', fontSize: '1rem', lineHeight: '1.6' }}>
+                We can customize this design, features, and WhatsApp order flow specifically for your brand, catalog, and customers.
               </p>
 
               <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
                 <a 
-                  href={`https://wa.me/23200000000?text=${whatsappMessage}`}
+                  href={`https://wa.me/23272116425?text=${whatsappMessage}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-whatsapp btn-lg"
                 >
                   <MessageSquare size={18} />
-                  <span>Discuss Similar Project on WhatsApp</span>
+                  <span>Discuss on WhatsApp</span>
                 </a>
 
                 <Link to="/contact" className="btn btn-primary btn-lg">
-                  <span>Start Your Project</span>
+                  <span>Start a Project</span>
                   <ArrowRight size={18} />
                 </Link>
               </div>

@@ -136,7 +136,7 @@ export const AboutPage = () => {
                 <ArrowRight size={18} />
               </Link>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20discuss%20working%20together." 
+                href="https://wa.me/23272116425?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20discuss%20working%20together." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp btn-lg"

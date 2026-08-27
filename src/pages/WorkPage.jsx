@@ -49,7 +49,7 @@ export const WorkPage = () => {
                 <ArrowRight size={16} />
               </Link>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20website%20for%20my%20business."
+                href="https://wa.me/23272116425?text=Hello%20Wisdom%20Designs,%20I%20reviewed%20your%20portfolio%20and%20want%20to%20discuss%20a%20website%20for%20my%20business."
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"

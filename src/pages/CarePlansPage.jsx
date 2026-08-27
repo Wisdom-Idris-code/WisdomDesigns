@@ -92,7 +92,7 @@ export const CarePlansPage = () => {
                 <ArrowRight size={16} />
               </Link>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20ask%20about%20your%20Website%20Care%20Plans." 
+                href="https://wa.me/23272116425?text=Hello%20Wisdom%20Designs,%20I%20would%20like%20to%20ask%20about%20your%20Website%20Care%20Plans." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"

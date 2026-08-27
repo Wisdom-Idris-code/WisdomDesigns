@@ -41,7 +41,7 @@ export const FAQPage = () => {
             </div>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20have%20a%20question%20about%20your%20services." 
+                href="https://wa.me/23272116425?text=Hello%20Wisdom%20Designs,%20I%20have%20a%20question%20about%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"

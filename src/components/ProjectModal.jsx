@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { X, Check, MessageSquare, ArrowRight } from 'lucide-react';
+import { X, Check, MessageSquare, ArrowRight, ExternalLink, Info } from 'lucide-react';
 
 export const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
@@ -17,8 +17,12 @@ export const ProjectModal = ({ project, onClose }) => {
 
   if (!project) return null;
 
+  const isCompleted = project.status === 'completed';
+
   const whatsappMessage = encodeURIComponent(
-    `Hello Wisdom Designs! I am interested in building a website similar to your "${project.title}" concept demo for my business.`
+    isCompleted
+      ? `Hello Wisdom Designs! I saw your completed project for "${project.name}" and would like to discuss a website for my business.`
+      : `Hello Wisdom Designs! I am interested in building a website similar to your "${project.name}" concept demo for my business.`
   );
 
   return (
@@ -39,14 +43,16 @@ export const ProjectModal = ({ project, onClose }) => {
             alt={project.title} 
             className="project-thumbnail-img" 
           />
-          <span className="project-label-badge">{project.label}</span>
+          <span className={`project-label-badge ${project.status}`}>
+            {project.label}
+          </span>
           <span className="project-category-tag">{project.category}</span>
         </div>
 
         <div className="modal-body">
           <div className="modal-header-meta">
-            <span style={{ fontSize: '0.85rem', color: 'var(--accent-light)', fontWeight: '600' }}>
-              Business Type: {project.businessType}
+            <span style={{ fontSize: '0.85rem', color: isCompleted ? '#34d399' : 'var(--accent-light)', fontWeight: '600' }}>
+              Category: {project.businessType}
             </span>
           </div>
 
@@ -55,17 +61,36 @@ export const ProjectModal = ({ project, onClose }) => {
             {project.tagline}
           </p>
 
+          {/* Concept Disclaimer */}
+          {!isCompleted && (
+            <div style={{
+              background: 'rgba(245, 158, 11, 0.08)',
+              border: '1px solid rgba(245, 158, 11, 0.25)',
+              borderRadius: 'var(--radius-sm)',
+              padding: '1rem',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '0.75rem'
+            }}>
+              <Info size={18} style={{ color: 'var(--amber-gold)', flexShrink: 0, marginTop: '2px' }} />
+              <p style={{ fontSize: '0.85rem', color: '#fef3c7', margin: 0, lineHeight: '1.5' }}>
+                {project.conceptDisclaimer || 'Concept website created to demonstrate a modern digital experience.'}
+              </p>
+            </div>
+          )}
+
           {/* Problem, Solution, and Customer Benefit Grid */}
           <div className="modal-section-grid">
             <div className="modal-box problem-box">
-              <h4>The Business Problem</h4>
+              <h4>{isCompleted ? 'The Business Problem' : 'Business Challenge'}</h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
                 {project.problem}
               </p>
             </div>
 
             <div className="modal-box solution-box">
-              <h4>The Wisdom Designs Solution</h4>
+              <h4>{isCompleted ? 'The Wisdom Designs Solution' : 'Proposed Solution'}</h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
                 {project.solution}
               </p>
@@ -73,7 +98,7 @@ export const ProjectModal = ({ project, onClose }) => {
           </div>
 
           <div className="modal-box benefit-box" style={{ marginBottom: '1.75rem' }}>
-            <h4>Business Outcome & Customer Benefit</h4>
+            <h4>{isCompleted ? 'Business Outcome & Impact' : 'User Experience & Expected Value'}</h4>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: '1.55' }}>
               {project.customerBenefit}
             </p>
@@ -81,7 +106,7 @@ export const ProjectModal = ({ project, onClose }) => {
 
           {/* Key Features List */}
           <div style={{ marginBottom: '1.75rem' }}>
-            <h4 style={{ fontSize: '1.1rem', marginBottom: '0.85rem' }}>Included Features</h4>
+            <h4 style={{ fontSize: '1.1rem', marginBottom: '0.85rem' }}>Key Features Included</h4>
             <ul className="service-features-list">
               {project.features.map((feat, idx) => (
                 <li key={idx} className="service-feature-item">
@@ -92,54 +117,40 @@ export const ProjectModal = ({ project, onClose }) => {
             </ul>
           </div>
 
-          {/* Interactive Catalog Preview Sample */}
-          {project.interactivePreview && (
-            <div className="interactive-preview-demo">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
-                <span style={{ fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', color: 'var(--accent-light)', letterSpacing: '0.05em' }}>
-                  Interactive Catalog Sample
-                </span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--whatsapp-green)' }}>
-                  ● 1-Click WhatsApp Order Ready
-                </span>
-              </div>
-
-              {project.interactivePreview.items.map((item, idx) => (
-                <div key={idx} className="demo-item-row">
-                  <div>
-                    <strong style={{ fontSize: '0.95rem', color: 'var(--text-primary)', display: 'block' }}>{item.name}</strong>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>{item.desc}</span>
-                  </div>
-                  <span style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--accent-light)', whiteSpace: 'nowrap', marginLeft: '1rem' }}>
-                    {item.price}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-
           {/* Action CTAs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginTop: '2rem' }}>
-            <a 
-              href={`https://wa.me/23200000000?text=${whatsappMessage}`}
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn btn-whatsapp btn-lg"
-              style={{ flex: 1, minWidth: '220px' }}
-            >
-              <MessageSquare size={18} />
-              <span>Discuss on WhatsApp</span>
-            </a>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem' }}>
+            {isCompleted && project.liveUrl && (
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-whatsapp"
+                style={{ flex: 1, minWidth: '180px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+              >
+                <span>View Live Website</span>
+                <ExternalLink size={16} />
+              </a>
+            )}
 
             <Link 
-              to="/contact" 
+              to={`/work/${project.id}`} 
               onClick={onClose} 
-              className="btn btn-primary btn-lg"
-              style={{ flex: 1, minWidth: '180px' }}
+              className="btn btn-secondary"
+              style={{ flex: 1, minWidth: '180px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
             >
-              <span>Get a Quote</span>
-              <ArrowRight size={18} />
+              <span>{isCompleted ? 'View Case Study →' : 'Explore Concept →'}</span>
             </Link>
+
+            <a 
+              href={`https://wa.me/23272116425?text=${whatsappMessage}`}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary"
+              style={{ flex: 1, minWidth: '180px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
+            >
+              <MessageSquare size={16} />
+              <span>Discuss on WhatsApp</span>
+            </a>
           </div>
         </div>
       </div>

@@ -58,7 +58,7 @@ export const FAQ = ({ limit, showHeader = true, showContactCta = true }) => {
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
               <a 
-                href="https://wa.me/23200000000?text=Hello%20Wisdom%20Designs,%20I%20have%20a%20question%20about%20your%20services." 
+                href="https://wa.me/23272116425?text=Hello%20Wisdom%20Designs,%20I%20have%20a%20question%20about%20your%20services." 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-whatsapp"
